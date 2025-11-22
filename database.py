@@ -1,3 +1,12 @@
+"""
+database.py -> módulo responsável pela conexão com o banco de dados PostgreSQL
+
+Funções disponíveis:
+- conectar()
+- desconectar()
+
+"""
+
 import psycopg2
 from configs import Settings
 
