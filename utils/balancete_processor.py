@@ -200,6 +200,23 @@ def remover_linhas_totalizadoras(df):
     return df_limpo
 
 
+def remover_coluna_saldo_periodo(df):
+    """
+    Remove a coluna "Saldo Período" se ela existir no DataFrame
+
+    Args:
+        df: DataFrame do pandas
+
+    Returns:
+        DataFrame sem a coluna "Saldo Período"
+    """
+    if 'Saldo Período' in df.columns:
+        df = df.drop(columns=['Saldo Período'])
+        print(f"🗑️ Coluna 'Saldo Período' removida")
+
+    return df
+
+
 def processar_balancete(arquivo):
     """
     Processa arquivo de balancete completo (pipeline)
@@ -218,23 +235,26 @@ def processar_balancete(arquivo):
     # 2. Remover colunas vazias (Unnamed, etc.)
     df = remover_colunas_vazias(df)
 
-    # 3. Validar estrutura
+    # 3. Remover coluna "Saldo Período" se existir
+    df = remover_coluna_saldo_periodo(df)
+
+    # 4. Validar estrutura
     valido, mensagem = validar_estrutura(df)
     if not valido:
         return (False, mensagem, None)
 
-    # 4. Limpar dados
+    # 5. Limpar dados
     df_limpo = limpar_dados(df)
 
-    # 5. Validar tipos
+    # 6. Validar tipos
     valido, mensagem, df_final = validar_tipos(df_limpo)
     if not valido:
         return (False, mensagem, None)
 
-    # 6. Remover linhas totalizadoras/lixo
+    # 7. Remover linhas totalizadoras/lixo
     df_final = remover_linhas_totalizadoras(df_final)
 
-    # 7. Verificar se há dados
+    # 8. Verificar se há dados
     if len(df_final) == 0:
         return (False, "❌ Arquivo não possui dados válidos", None)
 
