@@ -2,6 +2,7 @@
 configs.py
 .env
 *.env
+.streamlit/secrets.toml
 
 # Arquivos de dados
 dados/*.txt
