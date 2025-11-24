@@ -127,10 +127,10 @@ def show_main_page():
     # Sidebar
     with st.sidebar:
         # Menu de navegação
-        st.markdown("#### 📂 Navegação")
-        st.info("🏢 **Empresas** - Gestão de empresas")
-        st.info("📈 **Balancetes** - Upload e análise")
-        st.info("⚙️ **Configurações** - Ajustes")
+        # st.markdown("#### 📂 Navegação")
+        # st.info("🏢 **Empresas** - Gestão de empresas")
+        # st.info("📈 **Balancetes** - Upload e análise")
+        # st.info("⚙️ **Configurações** - Ajustes")
 
         # Informações do usuário
         st.markdown("#### 👤 Usuário")

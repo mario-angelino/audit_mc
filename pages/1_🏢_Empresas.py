@@ -44,7 +44,7 @@ with tab1:
         )
 
     with col2:
-        if st.button("🔄 Atualizar", use_container_width=True):
+        if st.button("🔄 Atualizar", width="stretch"):
             st.rerun()
 
     st.markdown("---")
@@ -62,7 +62,7 @@ with tab1:
         # Configurar colunas a exibir
         st.dataframe(
             df_empresas,
-            use_container_width=True,
+            width="stretch",
             hide_index=True,
             column_config={
                 "ID": st.column_config.NumberColumn("ID", width="small"),
@@ -83,9 +83,9 @@ with tab1:
         # Botões de ação
         col1, col2, col3 = st.columns([1, 1, 4])
         with col1:
-            st.button("📥 Exportar Excel", use_container_width=True)
+            st.button("📥 Exportar Excel", width="stretch")
         with col2:
-            st.button("📄 Exportar PDF", use_container_width=True)
+            st.button("📄 Exportar PDF", width="stretch")
     else:
         st.warning("⚠️ Nenhuma empresa encontrada.")
 
@@ -136,10 +136,10 @@ with tab2:
         col1, col2, col3 = st.columns([1, 1, 4])
         with col1:
             submit = st.form_submit_button(
-                "💾 Cadastrar", use_container_width=True, type="primary")
+                "💾 Cadastrar", width="stretch", type="primary")
         with col2:
             cancel = st.form_submit_button(
-                "🚫 Limpar", use_container_width=True)
+                "🚫 Limpar", width="stretch")
 
         if submit:
             # Validações
@@ -205,7 +205,7 @@ with tab3:
             key="termo_busca"
         )
 
-        if st.button("🔍 Buscar", use_container_width=False, type="primary"):
+        if st.button("🔍 Buscar", width="stretch", type="primary"):
             if not termo_busca:
                 st.error("⚠️ Digite um termo para buscar!")
             else:
@@ -228,7 +228,7 @@ with tab3:
 
                     st.dataframe(
                         df_resultado,
-                        use_container_width=True,
+                        width="stretch",
                         hide_index=True
                     )
                 else:
