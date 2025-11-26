@@ -25,7 +25,6 @@ def listar_empresas(filtro_status=None):
         query = """
             SELECT 
                 id,
-                plano_contas_id,
                 abreviacao,
                 razao_social,
                 cnpj_form,
@@ -51,7 +50,7 @@ def listar_empresas(filtro_status=None):
 
         # Criar DataFrame
         colunas = [
-            "ID", "Plano Contas ID", "Abreviação", "Razão Social", "CNPJ",
+            "ID", "Abreviação", "Razão Social", "CNPJ",
             "Controladora", "Controlada", "Operacional", "Patrimonial",
             "Ativa", "Inativa"
         ]
