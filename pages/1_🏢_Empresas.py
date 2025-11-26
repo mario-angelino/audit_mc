@@ -66,7 +66,7 @@ with tab1:
             hide_index=True,
             column_config={
                 "ID": st.column_config.NumberColumn("ID", width="small"),
-                "Plano Contas ID": st.column_config.NumberColumn("Plano Contas", width="small"),
+                #"Plano Contas ID": st.column_config.NumberColumn("Plano Contas", width="small"),
                 "Abreviação": st.column_config.TextColumn("Abreviação", width="medium"),
                 "Razão Social": st.column_config.TextColumn("Razão Social", width="large"),
                 "CNPJ": st.column_config.TextColumn("CNPJ", width="medium"),
